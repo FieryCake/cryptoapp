@@ -163,7 +163,7 @@
         <div class="card h-100 mx-auto" style="width: 92%">
           <img src="../assets/track.png" class="card-img-top h-100" alt="..." />
           <div class="card-body">
-            <p class="card-text">
+            <p class="card-text text-justify">
               1. Track the prices of coins with our application
             </p>
           </div>
@@ -196,12 +196,11 @@
     </div>
     <!--1. Track the prices of coins with our application 2. Paper trade coins using the paper money in your account 3. Analyse and see how you fair in the crypto world-->
     <div class="row mt-5 g-0" style="padding-left: 50px; padding-right: 50px">
-      
       <h1>lol</h1>
     </div>
 
     <div class="row mt-5 bg-light pt-5">
-      <div class="col-xs-12 col-md-8 bg-light" style="padding-left: 62px">
+      <div class="col-xs-12 col-md-8 bg-light text-start" style="padding-left: 62px">
         <h4 style="display: inline">
           Be the last to know about
           <h3 style="display: inline"><b>crypto news everyday</b></h3>
@@ -229,6 +228,58 @@
         />
       </div>
     </div>
+
+    <!--Footer-->
+    <div class="row mt-5" style="padding-left: 50px; padding-right: 50px">
+      <div class="col-6 text-start">
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Cryptocurrency_Logo.svg/633px-Cryptocurrency_Logo.svg.png"
+            alt="Logo image"
+            style="height: 50px; width: 100px"
+          />
+          <b class="ms-2">Coin crypto cap</b>
+        </div>
+      </div>
+
+      <div class="col-6 text-start">
+        <div class="row h-100 pt-3">
+          <div class="col">
+            <h5>Products</h5>
+            <div class="mt-3 p-2 ps-0">
+              <p><a class="mb-1">Crypto news</a></p>
+              <p><a class="mb-1">Crypto news</a></p>
+              <p><a class="mb-1">Crypto news</a></p>
+            </div>
+          </div>
+          <div class="col">
+            <h5>The Team</h5>
+            <div class="mt-3 p-2 ps-0">
+              <p><a class="mb-1">Crypto news</a></p>
+              <p><a class="mb-1">Crypto news</a></p>
+              <p><a class="mb-1">Crypto news</a></p>
+            </div>
+          </div>
+
+          <div class="col">
+            <h5>Support</h5>
+            <div class="mt-3 p-2 ps-0">
+              <p><a class="mb-1">Crypto news</a></p>
+              <p><a class="mb-1">Crypto news</a></p>
+              <p><a class="mb-1">Crypto news</a></p>
+            </div>
+          </div>
+
+          <div class="col">
+            <h5>Socials</h5>
+            <div class="mt-3 p-2 ps-0">
+              <p><a class="mb-1">Crypto news</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of footer row-->
   </div>
 </template>
 
