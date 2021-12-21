@@ -1,9 +1,13 @@
+
 <template>
   <!-- <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div> -->
   <div class="container-fluid">
+    {{lel}}
+    {{data}}
+    
     <div class="row g-0" id="myNavbar">
       <div class="col-12 border border-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -200,7 +204,10 @@
     </div>
 
     <div class="row mt-5 bg-light pt-5">
-      <div class="col-xs-12 col-md-8 bg-light text-start" style="padding-left: 62px">
+      <div
+        class="col-xs-12 col-md-8 bg-light text-start"
+        style="padding-left: 62px"
+      >
         <h4 style="display: inline">
           Be the last to know about
           <h3 style="display: inline"><b>crypto news everyday</b></h3>
@@ -280,17 +287,68 @@
       </div>
     </div>
     <!--End of footer row-->
+
   </div>
+
+
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
+import axios from 'axios'
+
+
 
 export default {
+  data(){
+    return{
+      lel:"lol",
+      data:'lolss',
+      finalData:{}
+    }
+  },
+
   name: "Home",
+  
+ 
   components: {
     // HelloWorld,
+    
   },
-};
+  beforeMount(){
+    this.sendGetRequest()
+    
+
+  },
+  mount(){
+    
+  },
+
+  methods:{
+  
+
+    async sendGetRequest(){
+      try {
+        const resp = await axios.get('http://localhost:8080/v1/cryptocurrency/listings/latest',{
+          qs: {
+                  'start': '1',
+                  'limit': '5000',
+                  'convert': 'USD'
+              },
+                  headers:{
+                      'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
+                      //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
+                  }
+        });
+        this.data=resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+    }
+    
+    }
+
+}
 </script>
