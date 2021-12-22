@@ -296,7 +296,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-import axios from 'axios'
+// import axios from 'axios'
 
 
 
@@ -317,7 +317,7 @@ export default {
     
   },
   beforeMount(){
-    this.sendGetRequest()
+    // this.sendGetRequest()
     
 
   },
@@ -328,25 +328,25 @@ export default {
   methods:{
   
 
-    async sendGetRequest(){
-      try {
-        const resp = await axios.get('http://localhost:8080/v1/cryptocurrency/listings/latest',{
-          qs: {
-                  'start': '1',
-                  'limit': '5000',
-                  'convert': 'USD'
-              },
-                  headers:{
-                      'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
-                      //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
-                  }
-        });
-        this.data=resp.data;
-    } catch (err) {
-        // Handle Error Here
-        console.error(err);
-    }
-    }
+    // async sendGetRequest(){
+    //   try {
+    //     const resp = await axios.get('http://localhost:8080/v1/cryptocurrency/listings/latest',{
+    //       qs: {
+    //               'start': '1',
+    //               'limit': '5000',
+    //               'convert': 'USD'
+    //           },
+    //               headers:{
+    //                   'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
+    //                   //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
+    //               }
+    //     });
+    //     this.data=resp.data;
+    //     } catch (err) {
+    //         // Handle Error Here
+    //         console.error(err);
+    //     }
+    // }
     
     }
 
