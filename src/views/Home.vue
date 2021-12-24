@@ -297,6 +297,7 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 // import axios from 'axios'
+import {getData} from '../data'
 
 
 
@@ -318,6 +319,7 @@ export default {
   },
   beforeMount(){
     // this.sendGetRequest()
+    this.getFinalData()
     
 
   },
@@ -326,6 +328,12 @@ export default {
   },
 
   methods:{
+    getFinalData(){
+      getData().then(response=>{
+        this.lel = response.data
+
+      })
+    }
   
 
     // async sendGetRequest(){
