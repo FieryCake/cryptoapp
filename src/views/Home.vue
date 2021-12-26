@@ -1,14 +1,14 @@
-
 <template>
   <!-- <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div> -->
   <div class="container-fluid">
-    {{lel}}
+  
     {{data}}
+  
     
-    <div class="row g-0" id="myNavbar">
+    <!-- <div class="row g-0" id="myNavbar">
       <div class="col-12 border border-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -56,7 +56,7 @@
           </div>
         </nav>
       </div>
-    </div>
+    </div> -->
     <!--Carousel-->
     <div class="row g-0 mt-3" style="padding-left: 50px; padding-right: 50px">
       <div class="col-12">
