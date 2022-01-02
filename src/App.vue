@@ -35,6 +35,9 @@
                  <router-link to="/about" class="nav-link">Portfolio</router-link>
                 </li>
                 <li class="nav-item">
+                 <router-link to="/guide" class="nav-link">Guide</router-link>
+                </li>
+                <li class="nav-item">
                   <router-link to="/about" class="nav-link">About</router-link>
                 </li>
                 <li class="nav-item ms-1">
