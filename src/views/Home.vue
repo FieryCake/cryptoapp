@@ -5,7 +5,8 @@
   </div> -->
   <div class="container-fluid">
   
-    {{data}}
+    
+    
   
     
     <!-- <div class="row g-0" id="myNavbar">
@@ -161,7 +162,7 @@
     <!--Below carousell (how it works)-->
 
     <div class="row g-0 mt-5" style="padding-left: 50px; padding-right: 50px">
-      <div class="col-12 mb-2"><h1>How it works</h1></div>
+      <div class="col-12 mb-2"><h3 class="text-center">How it works</h3></div>
 
       <div class="col-sm-4 col-xs-6">
         <div class="card h-100 mx-auto" style="width: 92%">
@@ -199,8 +200,12 @@
       </div>
     </div>
     <!--1. Track the prices of coins with our application 2. Paper trade coins using the paper money in your account 3. Analyse and see how you fair in the crypto world-->
-    <div class="row mt-5 g-0" style="padding-left: 50px; padding-right: 50px">
-      <h1>lol</h1>
+    <div class="row mt-5 g-0 text-left" style="padding-left: 50px; padding-right: 50px">
+      <h3 class="text-left">Top 10 Cryptocurrencies by Market Cap</h3>
+
+      <div id="topten"></div>
+
+
     </div>
 
     <div class="row mt-5 bg-light pt-5">
@@ -304,9 +309,10 @@ import {getData} from '../data'
 export default {
   data(){
     return{
-      lel:"lol",
+      lel:"",
       data:'lolss',
-      finalData:{}
+      finalData:{},
+ 
     }
   },
 
@@ -318,8 +324,8 @@ export default {
     
   },
   beforeMount(){
-    // this.sendGetRequest()
     this.getFinalData()
+    
     
 
   },
@@ -331,31 +337,48 @@ export default {
     getFinalData(){
       getData().then(response=>{
         this.lel = response.data
+        var template= `<table class="table" v-if="lel">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col" class="text-end">Price</th>
+            <th scope="col" class="text-end">Market Cap</th>
+            <th scope="col" class="text-end">Volume (24h)</th>
+            <th scope="col" class="text-end">Circulating Supply</th>
+          </tr>
+        </thead>`
+        template +=`<tbody>`
+        
+        for (let i =0;i<10;i++){
+          console.log(this.lel[i])
+          var name = this.lel[i].name
+          var price = this.lel[i].quote.USD.price
+          var mc = this.lel[i].quote.USD.market_cap
+          var vol = this.lel[i].quote.USD.volume_24h
+          var circsup = this.lel[i].circulating_supply
+          var symbol = this.lel[i].symbol
 
+          template += `<tr>`
+          template+=`<th scope="row" >${i+1}</th>`
+          template+=`<td>${name}</td>`
+          template+= `<td class="text-end">${price}</td>`
+          template+= `<td class="text-end">${mc}</td>`
+          template+= `<td class="text-end">${vol}</td>`
+          template+= `<td class="text-end">${circsup} ${symbol}</td>`
+          template+=`</tr>`
+          
+        template +=`</tbody>`
+        }
+        let target = document.getElementById("topten")
+        target.innerHTML +=template
+        console.log(template)
+
+        
+        
+        
       })
-    }
-  
-
-    // async sendGetRequest(){
-    //   try {
-    //     const resp = await axios.get('http://localhost:8080/v1/cryptocurrency/listings/latest',{
-    //       qs: {
-    //               'start': '1',
-    //               'limit': '5000',
-    //               'convert': 'USD'
-    //           },
-    //               headers:{
-    //                   'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
-    //                   //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
-    //               }
-    //     });
-    //     this.data=resp.data;
-    //     } catch (err) {
-    //         // Handle Error Here
-    //         console.error(err);
-    //     }
-    // }
-    
+    }   
     }
 
 }
