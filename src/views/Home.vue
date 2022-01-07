@@ -4,6 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div> -->
   <div class="container-fluid">
+    <h2 style="padding-start:50px; padding-top:20px;">Welcome {{loginStatus}}</h2>
     
     
     <!--Carousel-->
@@ -180,10 +181,6 @@
         </tbody>
       
     </table>
-
-   
-
-
     </div>
 
     <div class="row mt-5 bg-light pt-5">
@@ -218,6 +215,7 @@
         />
       </div>
     </div>
+
     
 
    
@@ -263,14 +261,16 @@ export default {
     
   },
   beforeMount(){
-    
+    // this.$store.dispatch('setTest','lol')
     
   },
   computed:{
     lel(){
-      
       return this.$store.getters.getData
-     
+    },
+
+    loginStatus(){
+      return this.$store.getters.getLoginData
     }
   },
 
@@ -279,9 +279,6 @@ export default {
   },
 
   methods:{
-   
-
-      
     
     }
 

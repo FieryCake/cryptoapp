@@ -43,9 +43,13 @@
                   <router-link to="/about" class="nav-link">About</router-link>
                 </li>
                 <li class="nav-item ms-1">
-                 <button type="button" class="btn btn-primary" v-on:click="clickLogin">
+                <button type="button" class="btn btn-primary" v-on:click="clickLogout" v-if="loginStatus">
+                    Logout
+                </button>
+                 <button type="button" class="btn btn-primary" v-on:click="clickLogin" v-else>
                       Login 
                     </button>
+                
                  
                 </li>
               </ul>
@@ -66,12 +70,20 @@ export default {
   },
 
 
-
   methods:{
       clickLogin(){
-          console.log("working")
-          this.$root.loginStatus = "work"
-          console.log(this.$root.loginStatus)
+          this.$store.dispatch('setLogin')
+          console.log(this.$store.state.loginInfo)
+      },
+      clickLogout(){
+          this.$store.dispatch('setLogout')
+          console.log(this.$store.state.loginInfo)
+      }
+  },
+
+  computed:{
+      loginStatus(){
+          return this.$store.getters.getLoginData
       }
   }
 };
