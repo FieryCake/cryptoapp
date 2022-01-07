@@ -43,8 +43,8 @@
                   <router-link to="/about" class="nav-link">About</router-link>
                 </li>
                 <li class="nav-item ms-1">
-                 <button type="button" class="btn btn-primary">
-                      <router-link to="/about" style="text-decoration:none" class="text-white">Login</router-link>
+                 <button type="button" class="btn btn-primary" v-on:click="clickLogin">
+                      Login 
                     </button>
                  
                 </li>
@@ -59,7 +59,20 @@
 <script>
 export default {
   name: "TopNav",
-  props: {
+  data(){
+    return{
+     
+    }
   },
+
+
+
+  methods:{
+      clickLogin(){
+          console.log("working")
+          this.$root.loginStatus = "work"
+          console.log(this.$root.loginStatus)
+      }
+  }
 };
 </script>

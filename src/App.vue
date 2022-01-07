@@ -27,7 +27,12 @@ export default {
     SiteFooter
     
   },
-  
+  beforeMount(){
+    this.$store.dispatch("setCurrentData")
+  },
+  mounted(){
+    
+  }
 
 }
 </script>
