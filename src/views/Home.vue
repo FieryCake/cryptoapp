@@ -4,60 +4,9 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div> -->
   <div class="container-fluid">
-  
+    <h2 style="padding-start:50px; padding-top:20px;">Welcome {{loginStatus}}</h2>
     
     
-  
-    
-    <!-- <div class="row g-0" id="myNavbar">
-      <div class="col-12 border border-light">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"
-              ><img
-                src="../assets/logo.jpg"
-                alt="Logo image"
-                style="height: 50px; width: 100px"
-              />
-              <b>Coin crypto cap</b></a
-            >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link p-0" href="#"
-                    ><button type="button" class="btn btn-primary">
-                      Login
-                    </button></a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div> -->
     <!--Carousel-->
     <div class="row g-0 mt-3" style="padding-left: 50px; padding-right: 50px">
       <div class="col-12">
@@ -202,10 +151,36 @@
     <!--1. Track the prices of coins with our application 2. Paper trade coins using the paper money in your account 3. Analyse and see how you fair in the crypto world-->
     <div class="row mt-5 g-0 text-left" style="padding-left: 50px; padding-right: 50px">
       <h3 class="text-left">Top 10 Cryptocurrencies by Market Cap</h3>
+      <table class="table" v-if="lel">
+        <thead class>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col" class="text-end">Price</th>
+            <th scope="col" class="text-end">Market Cap</th>
+            <th scope="col" class="text-end">Volume (24h)</th>
+            <th scope="col" class="text-end">Circulating Supply</th>
+          </tr>
+        </thead>
 
-      <div id="topten"></div>
+        <tbody>
+          <tr v-for="(n,i) in 10" :key=i>
+            <th scope="row" >{{i+1}}</th>
+            <td>{{lel.data[i].name}}</td>
+            <td class="text-end">${{lel.data[i].quote.USD.price.toFixed(2)}}</td>
+            <td class="text-end">${{lel.data[i].quote.USD.market_cap}}</td>
+            <td class="text-end">${{lel.data[i].quote.USD.volume_24h}}</td>
+            <td class="text-end">{{lel.data[i].circulating_supply}} {{lel.data[i].symbol}}</td>
+         
 
 
+          </tr>
+        
+
+
+        </tbody>
+      
+    </table>
     </div>
 
     <div class="row mt-5 bg-light pt-5">
@@ -241,78 +216,40 @@
       </div>
     </div>
 
-    <!--Footer-->
-    <div class="row mt-5" style="padding-left: 50px; padding-right: 50px">
-      <div class="col-6 text-start">
-        <div>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Cryptocurrency_Logo.svg/633px-Cryptocurrency_Logo.svg.png"
-            alt="Logo image"
-            style="height: 50px; width: 100px"
-          />
-          <b class="ms-2">Coin crypto cap</b>
-        </div>
-      </div>
+    
 
-      <div class="col-6 text-start">
-        <div class="row h-100 pt-3">
-          <div class="col">
-            <h5>Products</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-          <div class="col">
-            <h5>The Team</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-
-          <div class="col">
-            <h5>Support</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-
-          <div class="col">
-            <h5>Socials</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
     <!--End of footer row-->
 
   </div>
 
 
 </template>
+<style>
+.carousel-item{
+  opacity:1;
+  
+   
+}
+
+.carousel-caption {
+ background: rgba(0, 0, 0, 0.3);
+}</style>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 // import axios from 'axios'
-import {getData} from '../data'
+//import {getData} from '../data'
 
 
 
 export default {
   data(){
     return{
-      lel:"",
       data:'lolss',
       finalData:{},
- 
+      
     }
   },
 
@@ -324,61 +261,25 @@ export default {
     
   },
   beforeMount(){
-    this.getFinalData()
+    // this.$store.dispatch('setTest','lol')
     
-    
-
   },
-  mount(){
-    
+  computed:{
+    lel(){
+      return this.$store.getters.getData
+    },
+
+    loginStatus(){
+      return this.$store.getters.getLoginData
+    }
+  },
+
+  mounted(){
+   
   },
 
   methods:{
-    getFinalData(){
-      getData().then(response=>{
-        this.lel = response.data
-        var template= `<table class="table" v-if="lel">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col" class="text-end">Price</th>
-            <th scope="col" class="text-end">Market Cap</th>
-            <th scope="col" class="text-end">Volume (24h)</th>
-            <th scope="col" class="text-end">Circulating Supply</th>
-          </tr>
-        </thead>`
-        template +=`<tbody>`
-        
-        for (let i =0;i<10;i++){
-          console.log(this.lel[i])
-          var name = this.lel[i].name
-          var price = this.lel[i].quote.USD.price
-          var mc = this.lel[i].quote.USD.market_cap
-          var vol = this.lel[i].quote.USD.volume_24h
-          var circsup = this.lel[i].circulating_supply
-          var symbol = this.lel[i].symbol
-
-          template += `<tr>`
-          template+=`<th scope="row" >${i+1}</th>`
-          template+=`<td>${name}</td>`
-          template+= `<td class="text-end">${price}</td>`
-          template+= `<td class="text-end">${mc}</td>`
-          template+= `<td class="text-end">${vol}</td>`
-          template+= `<td class="text-end">${circsup} ${symbol}</td>`
-          template+=`</tr>`
-          
-        template +=`</tbody>`
-        }
-        let target = document.getElementById("topten")
-        target.innerHTML +=template
-        console.log(template)
-
-        
-        
-        
-      })
-    }   
+    
     }
 
 }
