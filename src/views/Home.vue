@@ -4,60 +4,6 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div> -->
   <div class="container-fluid">
-  
-    
-    
-  
-    
-    <!-- <div class="row g-0" id="myNavbar">
-      <div class="col-12 border border-light">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"
-              ><img
-                src="../assets/logo.jpg"
-                alt="Logo image"
-                style="height: 50px; width: 100px"
-              />
-              <b>Coin crypto cap</b></a
-            >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link p-0" href="#"
-                    ><button type="button" class="btn btn-primary">
-                      Login
-                    </button></a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div> -->
     <!--Carousel-->
     <div class="row g-0 mt-3" style="padding-left: 50px; padding-right: 50px">
       <div class="col-12">
@@ -203,7 +149,7 @@
     <div class="row mt-5 g-0 text-left" style="padding-left: 50px; padding-right: 50px">
       <h3 class="text-left">Top 10 Cryptocurrencies by Market Cap</h3>
 
-      <div id="topten"></div>
+      <div id="topten" class="table-responsive-lg table-responsive-md table-responsive-sm"></div>
 
 
     </div>
@@ -241,62 +187,23 @@
       </div>
     </div>
 
-    <!--Footer-->
-    <div class="row mt-5" style="padding-left: 50px; padding-right: 50px">
-      <div class="col-6 text-start">
-        <div>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Cryptocurrency_Logo.svg/633px-Cryptocurrency_Logo.svg.png"
-            alt="Logo image"
-            style="height: 50px; width: 100px"
-          />
-          <b class="ms-2">Coin crypto cap</b>
-        </div>
-      </div>
-
-      <div class="col-6 text-start">
-        <div class="row h-100 pt-3">
-          <div class="col">
-            <h5>Products</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-          <div class="col">
-            <h5>The Team</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-
-          <div class="col">
-            <h5>Support</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-
-          <div class="col">
-            <h5>Socials</h5>
-            <div class="mt-3 p-2 ps-0">
-              <p><a class="mb-1">Crypto news</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
     <!--End of footer row-->
 
   </div>
 
 
 </template>
+<style>
+.carousel-item{
+  opacity:1;
+  
+   
+}
+
+.carousel-caption {
+ background: rgba(0, 0, 0, 0.3);
+}</style>
 
 <script>
 // @ is an alias to /src
@@ -338,7 +245,7 @@ export default {
       getData().then(response=>{
         this.lel = response.data
         var template= `<table class="table" v-if="lel">
-        <thead>
+        <thead class>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -368,8 +275,9 @@ export default {
           template+= `<td class="text-end">${circsup} ${symbol}</td>`
           template+=`</tr>`
           
-        template +=`</tbody>`
+        
         }
+        template +=`</tbody>`
         let target = document.getElementById("topten")
         target.innerHTML +=template
         console.log(template)
