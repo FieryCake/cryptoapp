@@ -27,8 +27,14 @@
                 <li class="nav-item">
                     <router-link to="/" class="nav-link">Home</router-link>
                 </li>
-                <li class="nav-item">
-                 <router-link to="/portfolio" class="nav-link">Portfolio</router-link>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tools
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><router-link to="/calculator" class="nav-link">Swap calculator</router-link></li>
+                    <li><router-link to="/portfolio" class="nav-link">Portfolio</router-link></li>
+                </ul>
                 </li>
                 <li class="nav-item">
                  <router-link to="/guide" class="nav-link">Guide</router-link>
