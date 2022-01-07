@@ -1,10 +1,10 @@
 <template>
      <!--Footer-->
-    <div class="row mt-5" style="padding-left: 50px; padding-right: 50px">
+    <div class="row mt-5" style="padding-left:24px; padding-right:24px">
       <div class="col-6 text-start">
         <div>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Cryptocurrency_Logo.svg/633px-Cryptocurrency_Logo.svg.png"
+            src="../assets/logo.jpg"
             alt="Logo image"
             style="height: 50px; width: 100px"
           />
