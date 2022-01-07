@@ -4,6 +4,8 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div> -->
   <div class="container-fluid">
+    
+    
     <!--Carousel-->
     <div class="row g-0 mt-3" style="padding-left: 50px; padding-right: 50px">
       <div class="col-12">
@@ -148,8 +150,38 @@
     <!--1. Track the prices of coins with our application 2. Paper trade coins using the paper money in your account 3. Analyse and see how you fair in the crypto world-->
     <div class="row mt-5 g-0 text-left" style="padding-left: 50px; padding-right: 50px">
       <h3 class="text-left">Top 10 Cryptocurrencies by Market Cap</h3>
+      <table class="table" v-if="lel">
+        <thead class>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col" class="text-end">Price</th>
+            <th scope="col" class="text-end">Market Cap</th>
+            <th scope="col" class="text-end">Volume (24h)</th>
+            <th scope="col" class="text-end">Circulating Supply</th>
+          </tr>
+        </thead>
 
-      <div id="topten" class="table-responsive-lg table-responsive-md table-responsive-sm"></div>
+        <tbody>
+          <tr v-for="(n,i) in 10" :key=i>
+            <th scope="row" >{{i+1}}</th>
+            <td>{{lel.data[i].name}}</td>
+            <td class="text-end">${{lel.data[i].quote.USD.price.toFixed(2)}}</td>
+            <td class="text-end">${{lel.data[i].quote.USD.market_cap}}</td>
+            <td class="text-end">${{lel.data[i].quote.USD.volume_24h}}</td>
+            <td class="text-end">{{lel.data[i].circulating_supply}} {{lel.data[i].symbol}}</td>
+         
+
+
+          </tr>
+        
+
+
+        </tbody>
+      
+    </table>
+
+   
 
 
     </div>
@@ -186,6 +218,7 @@
         />
       </div>
     </div>
+    
 
    
     <!--End of footer row-->
@@ -209,17 +242,16 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 // import axios from 'axios'
-import {getData} from '../data'
+//import {getData} from '../data'
 
 
 
 export default {
   data(){
     return{
-      lel:"",
       data:'lolss',
       finalData:{},
- 
+      
     }
   },
 
@@ -231,62 +263,26 @@ export default {
     
   },
   beforeMount(){
-    this.getFinalData()
     
     
-
   },
-  mount(){
-    
+  computed:{
+    lel(){
+      
+      return this.$store.getters.getData
+     
+    }
+  },
+
+  mounted(){
+   
   },
 
   methods:{
-    getFinalData(){
-      getData().then(response=>{
-        this.lel = response.data
-        var template= `<table class="table" v-if="lel">
-        <thead class>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col" class="text-end">Price</th>
-            <th scope="col" class="text-end">Market Cap</th>
-            <th scope="col" class="text-end">Volume (24h)</th>
-            <th scope="col" class="text-end">Circulating Supply</th>
-          </tr>
-        </thead>`
-        template +=`<tbody>`
-        
-        for (let i =0;i<10;i++){
-          console.log(this.lel[i])
-          var name = this.lel[i].name
-          var price = this.lel[i].quote.USD.price
-          var mc = this.lel[i].quote.USD.market_cap
-          var vol = this.lel[i].quote.USD.volume_24h
-          var circsup = this.lel[i].circulating_supply
-          var symbol = this.lel[i].symbol
+   
 
-          template += `<tr>`
-          template+=`<th scope="row" >${i+1}</th>`
-          template+=`<td>${name}</td>`
-          template+= `<td class="text-end">${price}</td>`
-          template+= `<td class="text-end">${mc}</td>`
-          template+= `<td class="text-end">${vol}</td>`
-          template+= `<td class="text-end">${circsup} ${symbol}</td>`
-          template+=`</tr>`
-          
-        
-        }
-        template +=`</tbody>`
-        let target = document.getElementById("topten")
-        target.innerHTML +=template
-        console.log(template)
-
-        
-        
-        
-      })
-    }   
+      
+    
     }
 
 }
