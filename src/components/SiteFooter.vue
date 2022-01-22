@@ -1,6 +1,6 @@
 <template>
      <!--Footer-->
-    <div class="row mt-5" style="padding-left:24px; padding-right:24px">
+    <div class="row mt-5 g-0" style="padding-left:24px; padding-right:24px">
       <div class="col-6 text-start">
         <div>
           <img
