@@ -1,5 +1,5 @@
 <template>
-    <div class="row" id="myNavbar">
+    <div class="row g-0" id="myNavbar">
       <div class="col-12 border border-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
