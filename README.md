@@ -1,6 +1,7 @@
 # cryptoapp
 ## Image Overview
-![Sample Image](dis/Screenshot 2023-11-17 at 3.38.27 AM.png)
+![Sample Image](dis/Screenshot%202023-11-17%20at%203.38.27%20AM.png)
+
 
 
 ## Project setup
