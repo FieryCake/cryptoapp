@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
 const axios = require('axios');
+const apiKey = process.env.VUE_APP_API_KEY;
+
 
 export default createStore({
   state: {
@@ -31,8 +33,7 @@ export default createStore({
         'convert': 'USD'
     },
         headers:{
-            'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
-            //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
+            'X-CMC_PRO_API_KEY': apiKey
         }
     });
     state.commit("setCurrentData",response.data)

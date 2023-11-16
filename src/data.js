@@ -1,5 +1,7 @@
 
 const axios = require('axios');
+const api = process.env.API_KEY;
+require('dotenv').config();
 // export function getData() {
 //       var url = 'http://localhost:8080/v1/cryptocurrency/listings/latest'
 //        axios.get(url, {
@@ -10,7 +12,7 @@ const axios = require('axios');
 //               },
 //                   headers:{
 //                       'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
-//                       //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
+//                 
 //                   }
 //               })
 //               .then(response => {
@@ -30,8 +32,8 @@ const axios = require('axios');
 //                 'convert': 'USD'
 //             },
 //                 headers:{
-//                     'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
-//                     //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
+//                     'X-CMC_PRO_API_KEY': ''
+//                   
 //                 }
 //     });
 //         return resp.data;
@@ -47,8 +49,8 @@ export async function getData() {
         'convert': 'USD'
     },
         headers:{
-            'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'
-            //8840b0c8-0d0d-4ab0-8210-6910ce02ca88
+            'X-CMC_PRO_API_KEY': api
+
         }
     });
     return response.data;
@@ -56,7 +58,7 @@ export async function getData() {
 // export async function getData() {
 //     const response = await fetch(`'http://localhost:8080/v1/cryptocurrency/listings/latest`, {
 //         method: 'GET',
-//         headers: {'X-CMC_PRO_API_KEY': '8840b0c8-0d0d-4ab0-8210-6910ce02ca88'},
+//         headers: {'X-CMC_PRO_API_KEY': ''},
 //         qs: {
 //             'start': '1',
 //             'limit': '5000',
