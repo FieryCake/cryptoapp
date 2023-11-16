@@ -2,7 +2,9 @@
 ## Homepage
 ![Sample Image](dis/Screenshot%202023-11-17%20at%203.38.27%20AM.png)
 ## Homepage 2
-![Sample Image](dis/Screenshot%2023-11-17%at%3.38.43%AM.png)
+![Sample Image](dis/Screenshot%202023-11-17%20at%203.38.43%20AM.png)
+## Conversion calculator
+![Sample Image](dis/Screenshot%202023-11-17%20at%203.48.40%20AM.png)
 
 ## Project setup
 ```
