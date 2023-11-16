@@ -6,6 +6,9 @@
 ## Conversion calculator
 ![Sample Image](dis/Screenshot%202023-11-17%20at%203.48.40%20AM.png)
 
+## Skills learnt
+HTML, CSS, Vue.js, Javascript, APIs 
+------------------------------------------------------------------------
 ## Project setup
 ```
 npm install
